@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+ db:
+  build: ./db
+  container_name: dj-mariadb1
+  #restart: always
+  environment:
+   - MYSQL_ROOT_PASSWORD=rootpw
+   - MYSQL_USER=domjudge
+   - MYSQL_PASSWORD=djpw
+   - MYSQL_DATABASE=domjudge
+  #ports:
+   #- 13306:3306
+  entrypoint:
+   - docker-entrypoint.sh mysqld
+   #- mysql -u root -prootpw < /root/initcommand.sql
+ #domserver:
+  #image: domjudge/domserver:latest
+  #container_name: domserver
+  #environment:
+   #- MYSQL_HOST=dj-mariadb
+   #- MYSQL_USER=domjudge
+   #- MYSQL_DATABASE=domjudge
+   #- MYSQL_PASSWORD=djpw
+   #- MYSQL_ROOT_PASSWORD=rootpw
+  #ports:
+   #- 12345:80
+
