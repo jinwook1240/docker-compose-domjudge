@@ -23,4 +23,11 @@ services:
    - MYSQL_ROOT_PASSWORD=rootpw
   ports:
    - 12345:80
-
+ judgehost:
+  image: domjudge/judgehost:latest
+  container_name: judgehost-0
+  volumes:
+   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  hostname: judgedaemon-0
+  environment:
+   - DAEMON_ID=0
