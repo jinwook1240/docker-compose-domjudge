@@ -12,22 +12,31 @@ services:
   ports:
    - 13306:3306
  domserver:
-  image: domjudge/domserver:latest
+  build:
+   context: ./domserver
+   dockerfile: ./Dockerfile
   container_name: domserver
   restart: always
+  depends_on:
+   - "db"
   environment:
    - MYSQL_HOST=dj-mariadb
    - MYSQL_USER=domjudge
    - MYSQL_DATABASE=domjudge
    - MYSQL_PASSWORD=djpw
    - MYSQL_ROOT_PASSWORD=rootpw
+  command: ["/scripts/wait-for-mariadb.sh", "dj-mariadb", "/scripts/start.sh"]
   ports:
    - 12345:80
- judgehost:
-  image: domjudge/judgehost:latest
-  container_name: judgehost-0
-  volumes:
-   - /sys/fs/cgroup:/sys/fs/cgroup:ro
-  hostname: judgedaemon-0
-  environment:
-   - DAEMON_ID=0
+# judgehost:
+#  image: domjudge/judgehost:latest
+#  container_name: judgehost-0
+#  volumes:
+#   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+#  hostname: judgedaemon-0
+#  environment:
+#   - DAEMON_ID=0
+#   - JUDGEDAEMON_PASSWORD=`
+
+
+
