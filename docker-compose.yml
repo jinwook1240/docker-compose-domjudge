@@ -28,15 +28,14 @@ services:
   command: ["/scripts/wait-for-mariadb.sh", "dj-mariadb", "/scripts/start.sh"]
   ports:
    - 12345:80
-# judgehost:
-#  image: domjudge/judgehost:latest
-#  container_name: judgehost-0
-#  volumes:
-#   - /sys/fs/cgroup:/sys/fs/cgroup:ro
-#  hostname: judgedaemon-0
-#  environment:
-#   - DAEMON_ID=0
-#   - JUDGEDAEMON_PASSWORD=`
-
-
-
+ judgehost:
+  image: domjudge/judgehost:latest
+  container_name: judgehost-0
+  restart: always
+  volumes:
+   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  hostname: judgedaemon-0
+  environment:
+   - DAEMON_ID=0
+   - JUDGEDAEMON_PASSWORD=dGlKouosIJJENVMz
+   - JUDGEDAEMON_USERNAME=admin
