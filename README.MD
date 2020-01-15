@@ -8,3 +8,9 @@
 ## Todo
 - judgehost의 docker-compose 파일을 분할하여 다른 하드웨어에서 judgehost만 실행하고 domserver에 연결할 수 있도록 해야 함.
 - docker-compose의 기본 네트워크를 host 혹은 bridged로 변경하고 포트도 재설정하여 실제 상황에 적용할 수 있도록 해야 함.
+
+## 최종 목표?
+- 실행할 파일은 쉘 한개(옵션으로 다르게 동작시킴)
+- 쉘을 이용하여 mariadb+domserver
+- 쉘을 이용하여 judgehost 실행
+- 웹 상에서 비밀번호 변경 작업 없이 judgehost 자동 연결
