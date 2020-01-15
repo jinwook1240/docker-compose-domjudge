@@ -38,4 +38,4 @@ services:
   environment:
    - DAEMON_ID=0
    - JUDGEDAEMON_PASSWORD=dGlKouosIJJENVMz
-   - JUDGEDAEMON_USERNAME=admin
+   - JUDGEDAEMON_USERNAME=judgehost
