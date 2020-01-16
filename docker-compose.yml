@@ -25,6 +25,7 @@ services:
    - MYSQL_DATABASE=domjudge
    - MYSQL_PASSWORD=djpw
    - MYSQL_ROOT_PASSWORD=rootpw
+   - CONTAINER_TIMEZONE=Asia/Seoul
   command: ["/scripts/wait-for-mariadb.sh", "dj-mariadb", "/scripts/start.sh"]
   ports:
    - 12345:80
@@ -39,3 +40,4 @@ services:
    - DAEMON_ID=0
    - JUDGEDAEMON_PASSWORD=dGlKouosIJJENVMz
    - JUDGEDAEMON_USERNAME=judgehost
+   - CONTAINER_TIMEZONE=Asia/Seoul
