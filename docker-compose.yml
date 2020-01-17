@@ -1,6 +1,6 @@
-version: "3.7"
+version: "3"
 services:
- db:
+ dj-mariadb:
   image: mariadb:10.4.8
   container_name: dj-mariadb
   restart: always
@@ -9,8 +9,8 @@ services:
    - MYSQL_USER=domjudge
    - MYSQL_PASSWORD=djpw
    - MYSQL_DATABASE=domjudge
-  ports:
-   - 13306:3306
+#  ports:
+#   - 3306:3306
  domserver:
   build:
    context: ./domserver
@@ -18,7 +18,7 @@ services:
   container_name: domserver
   restart: always
   depends_on:
-   - "db"
+   - "dj-mariadb"
   environment:
    - MYSQL_HOST=dj-mariadb
    - MYSQL_USER=domjudge
@@ -28,16 +28,18 @@ services:
    - CONTAINER_TIMEZONE=Asia/Seoul
   command: ["/scripts/wait-for-mariadb.sh", "dj-mariadb", "/scripts/start.sh"]
   ports:
-   - 12345:80
- judgehost:
+   - 10080:80
+ judgedaemon-0:
   image: domjudge/judgehost:latest
   container_name: judgehost-0
   restart: always
   volumes:
    - /sys/fs/cgroup:/sys/fs/cgroup:ro
   hostname: judgedaemon-0
+  privileged: true
   environment:
    - DAEMON_ID=0
-   - JUDGEDAEMON_PASSWORD=dGlKouosIJJENVMz
+   - DOMSERVER_BASEURL=http://domserver/
+   - JUDGEDAEMON_PASSWORD=asjgosoakmclkbkavosdkmc
    - JUDGEDAEMON_USERNAME=judgehost
    - CONTAINER_TIMEZONE=Asia/Seoul
