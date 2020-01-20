@@ -9,6 +9,7 @@ git clone https://github.com/orehonyah/docker-compose-domjudge
 cd docker-compose-domjudge
 docker-compose start
 ```
+웹 상에서 admin 로그인 후 judgehost 유저의 비밀번호를 `asjgosoakmclkbkavosdkmc`로 설정  
 
 ## 최종 목표?
 aws에 올릴 수 있는 도커 세팅 완성
