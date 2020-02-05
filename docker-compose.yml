@@ -1,7 +1,7 @@
 version: "3"
 services:
  dj-mariadb:
-  image: mariadb:10.4.8
+  image: mariadb:10.4-bionic
   container_name: dj-mariadb
   restart: always
   environment:
@@ -30,7 +30,7 @@ services:
   ports:
    - 10080:80
  judgedaemon-0:
-  image: domjudge/judgehost:latest
+  image: domjudge/judgehost:7.2.0
   container_name: judgehost-0
   restart: always
   volumes:
