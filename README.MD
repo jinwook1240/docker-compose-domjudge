@@ -4,7 +4,7 @@
 [docker 공식 사이트의 docker-compose install 문서](https://docs.docker.com/compose/install/)를 참고하여 최신 버전을 설치(v3.x 버전의 yml 형식을 사용해야 함)  
 
 ## Install and run
-```shell
+```bash
 git clone https://github.com/orehonyah/docker-compose-domjudge
 cd docker-compose-domjudge
 docker-compose up
