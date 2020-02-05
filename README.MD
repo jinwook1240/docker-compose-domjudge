@@ -7,7 +7,7 @@
 ```shell
 git clone https://github.com/orehonyah/docker-compose-domjudge
 cd docker-compose-domjudge
-docker-compose start
+docker-compose up
 ```
 웹 상에서 admin 로그인 후 judgehost 유저의 비밀번호를 `asjgosoakmclkbkavosdkmc`로 설정  
 
