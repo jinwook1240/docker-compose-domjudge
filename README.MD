@@ -11,5 +11,8 @@ docker-compose up
 ```
 웹 상에서 admin 로그인 후 judgehost 유저의 비밀번호를 `asjgosoakmclkbkavosdkmc`로 설정  
 
+## Run judgedaemon only
+docker run -e DAEMON_ID=0 -e DOMSERVER_BASEURL=http://domserver주소:10080/ -e JUDGEDAEMON_PASSWORD=asjgosoakmclkbkavosdkmc -e JUDGEDAEMON_USERNAME=judgehost -e CONTAINER-TIMEZONE=Asia/Seoul -v /sys/fs/cgroup:/sys/fs/cgroup:ro --restart --hostname judgedaemon-0 --privileged domjudge/judgehost:7.2.0
+
 ## 최종 목표?
 aws에 올릴 수 있는 도커 세팅 완성
