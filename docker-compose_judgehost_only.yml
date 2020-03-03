@@ -1,0 +1,87 @@
+version: "3"
+services:
+# dj-mariadb:
+#  image: mariadb:10.4-bionic
+#  container_name: dj-mariadb
+#  restart: always
+#  environment:
+#   - MYSQL_ROOT_PASSWORD=rootpw
+#   - MYSQL_USER=domjudge
+#   - MYSQL_PASSWORD=djpw
+#   - MYSQL_DATABASE=domjudge
+##  ports:
+##   - 3306:3306
+# domserver:
+#  build:
+#   context: ./domserver
+#   dockerfile: ./Dockerfile
+#  container_name: domserver
+#  restart: always
+#  depends_on:
+#   - "dj-mariadb"
+#  environment:
+#   - MYSQL_HOST=dj-mariadb
+#   - MYSQL_USER=domjudge
+#   - MYSQL_DATABASE=domjudge
+#   - MYSQL_PASSWORD=djpw
+#   - MYSQL_ROOT_PASSWORD=rootpw
+#   - CONTAINER_TIMEZONE=Asia/Seoul
+#  command: ["/scripts/wait-for-mariadb.sh", "dj-mariadb", "/scripts/start.sh"]
+#  ports:
+#   - 10080:80
+ judgedaemon-0:
+  image: domjudge/judgehost:7.2.0
+  container_name: judgehost-0
+  restart: always
+  volumes:
+   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  hostname: judgedaemon-0
+  privileged: true
+  environment:
+   - DAEMON_ID=0
+   - DOMSERVER_BASEURL=http://blockchain.onyah.net:10080/
+   - JUDGEDAEMON_PASSWORD=asjgosoakmclkbkavosdkmc
+   - JUDGEDAEMON_USERNAME=judgehost
+   - CONTAINER_TIMEZONE=Asia/Seoul
+ judgedaemon-1:
+  image: domjudge/judgehost:7.2.0
+  container_name: judgehost-1
+  restart: always
+  volumes:
+   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  hostname: judgedaemon-1
+  privileged: true
+  environment:
+   - DAEMON_ID=1
+   - DOMSERVER_BASEURL=http://blockchain.onyah.net:10080/
+   - JUDGEDAEMON_PASSWORD=asjgosoakmclkbkavosdkmc
+   - JUDGEDAEMON_USERNAME=judgehost
+   - CONTAINER_TIMEZONE=Asia/Seoul
+ judgedaemon-2:
+  image: domjudge/judgehost:7.2.0
+  container_name: judgehost-2
+  restart: always
+  volumes:
+   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  hostname: judgedaemon-2
+  privileged: true
+  environment:
+   - DAEMON_ID=2
+   - DOMSERVER_BASEURL=http://blockchain.onyah.net:10080/
+   - JUDGEDAEMON_PASSWORD=asjgosoakmclkbkavosdkmc
+   - JUDGEDAEMON_USERNAME=judgehost
+   - CONTAINER_TIMEZONE=Asia/Seoul
+ judgedaemon-3:
+  image: domjudge/judgehost:7.2.0
+  container_name: judgehost-3
+  restart: always
+  volumes:
+   - /sys/fs/cgroup:/sys/fs/cgroup:ro
+  hostname: judgedaemon-3
+  privileged: true
+  environment:
+   - DAEMON_ID=3
+   - DOMSERVER_BASEURL=http://blockchain.onyah.net:10080/
+   - JUDGEDAEMON_PASSWORD=asjgosoakmclkbkavosdkmc
+   - JUDGEDAEMON_USERNAME=judgehost
+   - CONTAINER_TIMEZONE=Asia/Seoul
