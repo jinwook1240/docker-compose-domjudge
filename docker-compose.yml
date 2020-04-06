@@ -40,6 +40,6 @@ services:
   environment:
    - DAEMON_ID=0
    - DOMSERVER_BASEURL=http://domserver/
-   - JUDGEDAEMON_PASSWORD=asjgosoakmclkbkavosdkmc
+   - JUDGEDAEMON_PASSWORD=examplejudgehostpasswd
    - JUDGEDAEMON_USERNAME=judgehost
    - CONTAINER_TIMEZONE=Asia/Seoul
