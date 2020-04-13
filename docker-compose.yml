@@ -28,7 +28,7 @@ services:
    - CONTAINER_TIMEZONE=Asia/Seoul
   command: ["/scripts/wait-for-mariadb.sh", "dj-mariadb", "/scripts/start.sh"]
   ports:
-   - 10080:80
+   - 8080:80
  judgedaemon-0:
   image: domjudge/judgehost:7.2.0
   container_name: judgehost-0
