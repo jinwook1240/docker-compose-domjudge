@@ -39,7 +39,7 @@ services:
   privileged: true
   environment:
    - DAEMON_ID=0
-   - DOMSERVER_BASEURL=http://example.domserver.address:10080/
+   - DOMSERVER_BASEURL=http://example.domserver.address:8080/
    - JUDGEDAEMON_PASSWORD=examplejudgehostpasswd
    - JUDGEDAEMON_USERNAME=judgehost
    - CONTAINER_TIMEZONE=Asia/Seoul
@@ -53,7 +53,7 @@ services:
   privileged: true
   environment:
    - DAEMON_ID=1
-   - DOMSERVER_BASEURL=http://example.domserver.address:10080/
+   - DOMSERVER_BASEURL=http://example.domserver.address:8080/
    - JUDGEDAEMON_PASSWORD=examplejudgehostpasswd
    - JUDGEDAEMON_USERNAME=judgehost
    - CONTAINER_TIMEZONE=Asia/Seoul
@@ -67,7 +67,7 @@ services:
   privileged: true
   environment:
    - DAEMON_ID=2
-   - DOMSERVER_BASEURL=http://example.domserver.address:10080/
+   - DOMSERVER_BASEURL=http://example.domserver.address:8080/
    - JUDGEDAEMON_PASSWORD=examplejudgehostpasswd
    - JUDGEDAEMON_USERNAME=judgehost
    - CONTAINER_TIMEZONE=Asia/Seoul
@@ -81,7 +81,7 @@ services:
   privileged: true
   environment:
    - DAEMON_ID=3
-   - DOMSERVER_BASEURL=http://example.domserver.address:10080/
+   - DOMSERVER_BASEURL=http://example.domserver.address:8080/
    - JUDGEDAEMON_PASSWORD=examplejudgehostpasswd
    - JUDGEDAEMON_USERNAME=judgehost
    - CONTAINER_TIMEZONE=Asia/Seoul
